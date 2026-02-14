@@ -23,7 +23,7 @@ It combines a flexible, readable syntax inspired by Lua and Ruby with a lightwei
   - CLI: `REPL`, `creating projects`, `running projects`, `executing files`
 - **Work In Progress:** Standard library, bug fixes, more language features.
 - **Planned v1.0.0:** Full standard library, stable constructs, improved error handling.
-- **Planned v2.0.0:** Rewriting runtime from tree-runing to bytecode-running
+- **Planned v2.0.0:** Transition from tree-walking runtime to bytecode-based execution
 
 ## Example: Hello World
 
