@@ -1,6 +1,5 @@
 # Aqua Language Specification: Lexical Structure
 
-
 ## 1. Whitespace
 
 Whitespace characters are ignored. Whitespace includes any character classified as Unicode space.
@@ -33,6 +32,8 @@ Comments are ignored during lexical analysis.
 
 ## 4. Identifiers
 
+- `<indent>`
+  
 Identifiers name variables, subroutines, modules, and properties.
 
 ### Rules:
@@ -70,21 +71,24 @@ switch, case, default,
 using,
 sub, with,
 mod, export, import, as,
-delete,
 return, break, continue,
 raise,
 enum,
 and, or, xor, not,
 in,
 typeof,
-true, false, null,
+true, false, null, _ 
 infinity, nan
 ```
+
+> Note: null and _ have token `<null>`
 
 ## 6. Literals
 
 ### 6.1 Numeric Literals
 
+- `<number`
+  
 Aqua supports:
 
 - Decimal integers
@@ -109,6 +113,8 @@ Examples:
 ```
 
 ### 6.2 String Literals
+
+- `<string>`
 
 String literals are enclosed in double quotes:
 
@@ -148,19 +154,45 @@ nan
 ## 7. Operators and Punctuation
 
 ```
-+  -  *  /  %  //
++     <plus>
+-     <minus>
+*     <multiply>
+/     <divide>
+%     <modulus>
+//    <strong divide>
 
-++  --
+++    <increment>
+--    <decrement>
 
-==  ~=  >  <  >=  <=
+==    <eq>
+~=    <ne>
+>     <gt>
+<     <lt>
+>=    <ge>
+<=    <le>
 
-<<  >>
+<<    <shl>
+>>    <shr>
 
-=
+=     <assign>
 
-?.   ??
+?.    <question dot>
+?.>   <question method>
+?.~   <question delete>
+??    <question>
 
-.   ,   :   &
-( )   [ ]   { }
-...   ->   .>
+.     <dot>
+,     <comma>
+:     <column>
+&     <ptr>
+$     <clone>
+
+()    <parenthesis opened> / <parenthesis closed>
+[]    <square bracket opened> / <square bracket closed>
+{}    <brace opened> / <brace closed>
+
+...   <dots>
+->    <bind>
+.>    <method>
+.~    <delete>
 ```
