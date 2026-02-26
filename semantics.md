@@ -441,7 +441,7 @@ It also provides an optional enumerating for each iteration, if enumerating is i
 - Transforming into **iterable**
     - For strings iterating over each **character** of the string as a separate string. Since strings are immutable changing the character does not affect the original string
     - For arrays iterating over each element of the array. The elements are not cloned and could be mutated affecting the elements in the array.
-    - For objects iterating over each key and value of the object. Objects are unordered. Mutating the key does not affect the object, however mutating the value will change it in the object
+    - For objects iterating over each key and value of the object. If the object has a method `__next__` it would used as the iterable (next part for subroutines). Objects are unordered. Mutating the key does not affect the object, however mutating the value will change it in the object
     - For subroutines they would be called unless the subroutine raised error with code №7 `IteratorStop`
     - Other types are not iterable
   
@@ -464,17 +464,15 @@ println()
 
 sub range(max) 
     it.max = max
-    it
+    return
 with {
-    current: 0,
-    sub next() 
+    max, current: 0,
+    sub __next__() 
         if it.current >= it.max 
             raise: stop 
         end
-        it.current++
-        _
-    end,
-    sub __iter__() it.>next end
+        it.current++ -1
+    end
 }
 
 for i in enum range(10)
@@ -735,6 +733,8 @@ Most operators may or must have custom logic for objects witch curtain methods
 `__number__` Called when converting value into number
 
 `__iter__` Called when converting value into iterator
+
+`__next__` Called when an object is iterated
 
 `__display__` Called when converting value into string
 

@@ -199,7 +199,7 @@ array_expression = <square bracket opened> + array_declaration <square bracket c
 Object literals allow you to define key-value mappings, embedded `subroutines` as methods, and spread other objects.
 
 ```
-object_element = <ident> + <column> + expression | <dots> + expression | subroutine_expression @with-name
+object_element = <ident> + (<column> + expression)? | <dots> + expression | subroutine_expression @with-name
 object_expression = <brace opened> + (object_element)? + [<comma> + object_element] + <brace closed>
 ```
 
