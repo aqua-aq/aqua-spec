@@ -36,6 +36,7 @@ println("Hello World!")
 - [Aqua-Core Repository](https://github.com/aqua-aq/aqua-core)
 - [Aqua-Docs](https://github.com/aqua-aq/aqua-docs)
 - [Aqua-Spec](https://github.com/aqua-aq/aqua-spec)
+- [VSCode Extnetion](https://github.com/aqua-aq/vscode-aqua)
 
 ## License
 
