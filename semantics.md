@@ -2,7 +2,7 @@
 
 ## 1. Values, Cloning Values
 
-Values are a pointer to 8 different types. Aqua by default uses *deep cloning* meaning cloning a value will clone recursively all values stored in it. 
+Values are a pointer to 8 different types. Aqua by default uses *deep cloning* meaning cloning a value will clone recursively all values stored in it. It preserves recursive objects and other *more than one reference to one value* constructions.
 
 ### 1.1. Numbers
 
@@ -756,6 +756,8 @@ Most operators may or must have custom logic for objects witch curtain methods
 
 `__inc__` Operator `++`
 
+`__clone__` Operator `$` and just any clones
+
 ### 6.4. Binary Expressions
 `__add__` Operator `+`
 
@@ -918,8 +920,3 @@ Converting booleans to numbers: the same as if true=1, false=0
 ### 8.9. Operators For Objects: `[]`
 
 Get's the value with the from right. The same as member, but dynamic.
-
-## 9. Cloning
-
-Different expression evaluations are cloned or not. Was the value really cloned depends by the expression type for example let, prefix ptr, direct assigment expressions bypass even required cloning. Usually if cloning the value isn't needed it doesn't require cloning like in binary expressions since cloning is always deep and may cost too much. Sometimes bypassing cloning might be unsafe and the behavior will depend on the runtime.
-   
