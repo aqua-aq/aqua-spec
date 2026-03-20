@@ -77,7 +77,7 @@ enum,
 and, or, xor, not,
 in,
 typeof,
-true, false, null, _ 
+true,   , null, _ 
 infinity, nan
 ```
 

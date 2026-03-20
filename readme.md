@@ -9,6 +9,7 @@ It combines a flexible, readable syntax inspired by Lua and Ruby with a lightwei
 
 - **Dynamic Typing:** Variables do not require explicit type declarations.
 - **Expression-Oriented:** Almost every construct, including `if`, `while`, `begin` blocks, and loops, returns a value.
+- **Cloning** Deep cloning by default, full control of clone operations
 - **Objects & `it`:** Functions can act as constructors. Each function has a base object (`it`) which represents the function's default context.  
   While it allows an OOP-like style, Aqua is primarily function-based.
 - **Built-in Data Types:** 
